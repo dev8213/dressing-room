@@ -10,13 +10,13 @@ module.exports = function MoreDressingRoomItems(mod) {
 		my = { gameId:0, race:-1, job:-1 },
 		itemList = []
 	
-	mod.hook('S_LOGIN', 15, event => {
+	mod.hook('S_LOGIN', '*', event => {
 		my.gameId = event.gameId
 		my.race = Math.floor((event.templateId - 10101) / 100)
 		my.job = (event.templateId - 10101) % 100
 		loadData()
 	})
-	mod.hook('S_REQUEST_CONTRACT', 2, event => {
+	mod.hook('S_REQUEST_CONTRACT', '*', event => {
 		if (!mod.settings.enabled) return
 		if (Number(event.type) == 77) {
 			mod.send('S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST', 1, {
