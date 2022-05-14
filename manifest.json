@@ -1,0 +1,9 @@
+{
+    "files": {
+        "data/dressingroom.json": "005b0dd202e0763a353b94da944170484e310c546cfc0c7a3f976c60736c12c1",
+        "index.js": "3218ba10bdde7de5d63add1eea0e0b7ad52c78b18cdedf149352aa11432c3d1d",
+        "module.json": "8f7a58efd80a44908b068c04562f45961cd56f2847052eb0f4c4aa5f4c517b1c",
+        "settings_migrator.js": "65c2eb6659482385fb72498b9aa3a8936352bd6531220a1c7c32c54ee965c773",
+        "settings_structure.js": "f321ece4e40dec229045beb7a28841e5c34bb812387d71b1094502f156e12a68"
+    }
+}

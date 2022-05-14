@@ -1,0 +1,14 @@
+{
+    "author": "dev8213",
+    "name": "dressing-room",
+    "disableAutoUpdate": false,
+    "servers": ["https://raw.githubusercontent.com/dev8213/dressing-room/master/"],
+    "options": {
+        "niceName": "Dressing",
+        "guiName": "Dressing",
+        "reloadable": true,
+        "settingsVersion": 1,
+        "settingsFile": "config.json",
+        "settingsMigrator": "settings_migrator.js"
+    }
+}
