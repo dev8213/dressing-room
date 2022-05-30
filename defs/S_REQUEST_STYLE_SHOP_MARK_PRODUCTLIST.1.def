@@ -1,0 +1,13 @@
+ref	list
+array list
+- ref string
+- int32  type
+- int32  id
+- uint32 unk1
+- int32  unk2
+- int32  unk3
+- bool   unk4
+- int32  unk5
+- int32  unk6
+- bool   unk7
+- string string

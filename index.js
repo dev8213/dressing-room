@@ -1,7 +1,10 @@
+String.prototype.clr = function (hexColor) { return `<font color='#${hexColor}'>${this}</font>` }
 const path = require('path')
 const fs = require('fs')
 const SettingsUI = require('tera-mod-ui').Settings
 module.exports = function MoreDressingRoomItems(mod) {
+	
+	mod.dispatch.addDefinition('S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST', 1, path.join(__dirname,'./defs/S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST.1.def'), true)
 	
 	let	data = mod.majorPatchVersion == 92? reloadJSON('./data/dressingroom92.json'): reloadJSON('./data/dressingroom.json'),
 		jobs = ['warrior','lancer','slayer','berserker','sorcerer','archer','priest','mystic','reaper','gunner','brawler','ninja','valkyrie'],
@@ -71,7 +74,8 @@ module.exports = function MoreDressingRoomItems(mod) {
 				unk4: false,
 				unk5: 0,
 				unk6: 1,
-				unk7: ""
+				unk7: false
+				string: ""
 			})
 		}
 		return convertedList
