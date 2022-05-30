@@ -3,7 +3,7 @@ const fs = require('fs')
 const SettingsUI = require('tera-mod-ui').Settings
 module.exports = function MoreDressingRoomItems(mod) {
 	
-	let	data = reloadJSON('./data/dressingroom.json'),
+	let	data = mod.majorPatchVersion == 92? reloadJSON('./data/dressingroom92.json'): reloadJSON('./data/dressingroom.json'),
 		jobs = ['warrior','lancer','slayer','berserker','sorcerer','archer','priest','mystic','reaper','gunner','brawler','ninja','valkyrie'],
 		races = ['human-male','human-female','elf-male','elf-female','aman-male','aman-female','castanic-male','castanic-female','popori','elin','baraka'],
 		genders = ['male','female','male','female','male','female','male','female','male','female','male'],
@@ -39,7 +39,7 @@ module.exports = function MoreDressingRoomItems(mod) {
 				break
 			case 'r':
 			case 'reload':
-				data = reloadJSON('./data/dressingroom.json')
+				data = mod.majorPatchVersion == 92? reloadJSON('./data/dressingroom92.json'): reloadJSON('./data/dressingroom.json')
 				loadData()
 				mod.command.message('data reloaded')
 				break
