@@ -74,7 +74,7 @@ module.exports = function MoreDressingRoomItems(mod) {
 				unk4: false,
 				unk5: 0,
 				unk6: 1,
-				unk7: false
+				unk7: false,
 				string: ""
 			})
 		}
