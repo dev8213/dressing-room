@@ -4,45 +4,49 @@ const fs = require('fs')
 const SettingsUI = require('tera-mod-ui').Settings
 module.exports = function MoreDressingRoomItems(mod) {
 	
-	mod.dispatch.addDefinition('S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST', 1, path.join(__dirname,'./defs/S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST.1.def'), true)
+	mod.dispatch.addDefinition('S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST', 1, path.join(__dirname,'./defs/S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST.1.def'))
+	mod.dispatch.addOpcode('S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST', mod.majorPatchVersion == 100 ? 20078 : undefined)
 	
-	let	data = mod.majorPatchVersion == 92? reloadJSON('./data/dressingroom92.json'): reloadJSON('./data/dressingroom.json'),
+	let	data = mod.majorPatchVersion == 100? reloadJSON('./data/dressingroom100.json'): reloadJSON('./data/dressingroom.json'),
 		jobs = ['warrior','lancer','slayer','berserker','sorcerer','archer','priest','mystic','reaper','gunner','brawler','ninja','valkyrie'],
 		races = ['human-male','human-female','elf-male','elf-female','aman-male','aman-female','castanic-male','castanic-female','popori','elin','baraka'],
 		genders = ['male','female','male','female','male','female','male','female','male','female','male'],
 		my = { gameId:0, race:-1, job:-1 },
-		itemList = []
+		itemList = [],
+		debug = false
 	
-	mod.hook('S_LOGIN', '*', event => {
+	mod.hook('S_LOGIN', 14, event => {
 		my.gameId = event.gameId
 		my.race = Math.floor((event.templateId - 10101) / 100)
 		my.job = (event.templateId - 10101) % 100
 		loadData()
 	})
-	mod.hook('S_REQUEST_CONTRACT', '*', event => {
+	mod.hook('S_REQUEST_CONTRACT', 1, event => {
 		if (!mod.settings.enabled) return
+		if (debug) console.log('S_REQUEST_CONTRACT', JSON.stringify(event))
 		if (Number(event.type) == 77) {
 			mod.send('S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST', 1, {
 				list: itemList
 			})
 		}
+		if (debug) console.log('inDressingRoom', inDressingRoom)
 	})
 	mod.hook('S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST', 1, () => {
 		if (!mod.settings.enabled) return
 		return false
-	})
-	
+	})	
 	mod.command.add('dr', (arg1, arg2, arg3) => {
 		if(arg1 && arg1.length > 0) arg1 = arg1.toLowerCase()
 		if(arg2 && arg2.length > 0) arg2 = arg2.toLowerCase()
 		if(arg3 && arg3.length > 0) arg3 = arg3.toLowerCase()
 		switch (arg1) {
 			case 'ui':
+			case 'gui':
 				showGui()
 				break
 			case 'r':
 			case 'reload':
-				data = mod.majorPatchVersion == 92? reloadJSON('./data/dressingroom92.json'): reloadJSON('./data/dressingroom.json')
+				data =  mod.majorPatchVersion == 100? reloadJSON('./data/dressingroom100.json'): reloadJSON('./data/dressingroom.json')
 				loadData()
 				mod.command.message('data reloaded')
 				break

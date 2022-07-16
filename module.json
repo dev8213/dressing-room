@@ -2,7 +2,7 @@
     "author": "dev8213",
     "name": "dressing-room",
     "disableAutoUpdate": false,
-    "servers": ["https://raw.githubusercontent.com/dev8213/dressing-room/master/"],
+    "servers": ["https://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@raw.githubusercontent.com/dev8213/dressing-room/master/"],
     "options": {
         "niceName": "Dressing",
         "guiName": "Dressing",
