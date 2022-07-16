@@ -5,9 +5,9 @@ const SettingsUI = require('tera-mod-ui').Settings
 module.exports = function MoreDressingRoomItems(mod) {
 	
 	mod.dispatch.addDefinition('S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST', 1, path.join(__dirname,'./defs/S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST.1.def'))
-	mod.dispatch.addOpcode('S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST', mod.majorPatchVersion == 100 ? 20078 : undefined)
+	mod.dispatch.addOpcode('S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST', 20078)
 	
-	let	data = mod.majorPatchVersion == 100? reloadJSON('./data/dressingroom100.json'): reloadJSON('./data/dressingroom.json'),
+	let	data = reloadJSON('./data/dressingroom.json'),
 		jobs = ['warrior','lancer','slayer','berserker','sorcerer','archer','priest','mystic','reaper','gunner','brawler','ninja','valkyrie'],
 		races = ['human-male','human-female','elf-male','elf-female','aman-male','aman-female','castanic-male','castanic-female','popori','elin','baraka'],
 		genders = ['male','female','male','female','male','female','male','female','male','female','male'],
@@ -46,7 +46,7 @@ module.exports = function MoreDressingRoomItems(mod) {
 				break
 			case 'r':
 			case 'reload':
-				data =  mod.majorPatchVersion == 100? reloadJSON('./data/dressingroom100.json'): reloadJSON('./data/dressingroom.json')
+				data = reloadJSON('./data/dressingroom.json')
 				loadData()
 				mod.command.message('data reloaded')
 				break
