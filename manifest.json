@@ -2,10 +2,10 @@
     "files": {
         "README.md": "1d6a5717dda54097adcd4b9a19343389102d02ac49ca7ed8beb25a63a5fa2d31",
         "data/dressingroom.json": "005b0dd202e0763a353b94da944170484e310c546cfc0c7a3f976c60736c12c1",
-        "data/dressingroom92.json": "016adb9868bc67f5cb541927696c95593485c022c9b8606ebe0ee1d5ca1ba188",
+        "data/dressingroom100.json": "016adb9868bc67f5cb541927696c95593485c022c9b8606ebe0ee1d5ca1ba188",
         "defs/S_REQUEST_STYLE_SHOP_MARK_PRODUCTLIST.1.def": "02f1598cf0c8da3c51395272f88ddc170649c609ed623dae24883c1d550b5a3a",
         "index.js": "b07d3efba1a507a81ad68f3806e2d02dbf50f3d0c38abc4a0d27c149fd559b0d",
-        "module.json": "7455bdf35c0c2070741b86e69a8a6fe7b1d833497b08f8067e9d6d8db9d048cc",
+        "module.json": "8f7a58efd80a44908b068c04562f45961cd56f2847052eb0f4c4aa5f4c517b1c",
         "settings_migrator.js": "65c2eb6659482385fb72498b9aa3a8936352bd6531220a1c7c32c54ee965c773",
         "settings_structure.js": "f321ece4e40dec229045beb7a28841e5c34bb812387d71b1094502f156e12a68"
     }
